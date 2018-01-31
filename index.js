@@ -1,6 +1,22 @@
 const TIMEOUT_IN_SECS = 3 * 60;
 const ALERT_TIMEOUT = 30;
 const TEMPLATE = "<span class='js-timer-minutes'>00</span>:<span class='js-timer-seconds'>00</span>";
+const MESSAGES =
+  [
+    '«Всякий неработающий человек — негодяй» \n Жан-Жак Руссо',
+    '«Жить — значит работать. Труд есть жизнь человека» \n Вольтер',
+    '«Любовь и работа - единственные стоящие вещи в жизни. Работа - это своеобразная форма любви» \n Мэрилин Монро',
+    '«Отдых сердца лучше всего обеспечивает работа ума» \n Гастон Левис',
+    '«Работа избавляет нас от трех великих зол: скуки, порока, нужды» \n Вольтер',
+    '«Работа — мое первое наслаждение» \n Вольфганг Моцарт',
+    '«Я твердо верю в удачу, и я заметил: чем больше я работаю, тем я удачливее» \n Томас Джефферсон',
+    '«Вдохновение приходит только во время работы» \n Габриэль Маркес',
+    '«Понуждай сам свою работу; не жди, чтобы она тебя понуждала» \n Бенджамин Франклин',
+    '«Единственное спасение в душевном горе — это работа» \n Петр Чайковский',
+    '«Чтобы победить самые тяжелые страдания, есть два средства: это опиум и работа» \n Генрих Гейне',
+    '«Унция репутации стоит фунта работы» \n Лоренс Питер',
+    '«Обычно те, кто лучше других умеет работать, лучше других умеют не работать» \n Жорж Элгози'
+  ];
 
 function padZero(number) {
   return ("00" + String(number)).slice(-2);
@@ -13,26 +29,10 @@ function showMessage(massages) {
 class Timer {
   // IE does not support new style classes yet
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
-  constructor(timeout_in_secs, alert_timeout) {
+  constructor(timeout_in_secs, alert_timeout, messages) {
     this.initial_timeout_in_secs = timeout_in_secs;
     this.alert_timeout = alert_timeout;
-
-    this.MESSAGES =
-      [
-        '«Всякий неработающий человек — негодяй» \n Жан-Жак Руссо',
-        '«Жить — значит работать. Труд есть жизнь человека» \n Вольтер',
-        '«Любовь и работа - единственные стоящие вещи в жизни. Работа - это своеобразная форма любви» \n Мэрилин Монро',
-        '«Отдых сердца лучше всего обеспечивает работа ума» \n Гастон Левис',
-        '«Работа избавляет нас от трех великих зол: скуки, порока, нужды» \n Вольтер',
-        '«Работа — мое первое наслаждение» \n Вольфганг Моцарт',
-        '«Я твердо верю в удачу, и я заметил: чем больше я работаю, тем я удачливее» \n Томас Джефферсон',
-        '«Вдохновение приходит только во время работы» \n Габриэль Маркес',
-        '«Понуждай сам свою работу; не жди, чтобы она тебя понуждала» \n Бенджамин Франклин',
-        '«Единственное спасение в душевном горе — это работа» \n Петр Чайковский',
-        '«Чтобы победить самые тяжелые страдания, есть два средства: это опиум и работа» \n Генрих Гейне',
-        '«Унция репутации стоит фунта работы» \n Лоренс Питер',
-        '«Обычно те, кто лучше других умеет работать, лучше других умеют не работать» \n Жорж Элгози'
-      ];
+    this.messages = messages;
 
     this.reset()
   }
@@ -69,7 +69,7 @@ class Timer {
     let currentTimestamp = Timer.getTimestampInSecs();
     let secsGone = currentTimestamp - this.timestampOnStart;
     if (this.timeout_in_secs - secsGone <= 0) {
-      showMessage(this.MESSAGES);
+      showMessage(this.messages);
       this.reset(this.alert_timeout);
       this.start();
     }
@@ -120,7 +120,7 @@ class TimerWidget {
 function main() {
 
   console.log('timer started');
-  let timer = new Timer(TIMEOUT_IN_SECS, ALERT_TIMEOUT);
+  let timer = new Timer(TIMEOUT_IN_SECS, ALERT_TIMEOUT, MESSAGES);
   let timerWiget = new TimerWidget();
   let intervalId = null;
 
