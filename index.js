@@ -1,6 +1,6 @@
 const TIMEOUT_IN_SECS = 3 * 60;
 const ALERT_TIMEOUT = 30;
-const TEMPLATE = "<span class='js-timer-minutes'>00</span>:<span class='js-timer-seconds'>00</span>";
+const TEMPLATE = '<h1><span class="js-timer-minutes">00</span>:<span class="js-timer-seconds">00</span></h1>';
 const MESSAGES =
   [
     '«Всякий неработающий человек — негодяй» \n Жан-Жак Руссо',
@@ -89,9 +89,18 @@ class TimerWidget {
       this.unmount();
 
     // adds HTML tag to current page
-    this.timerContainer = document.createElement("a");
+    this.timerContainer = document.createElement('div');
 
-    this.timerContainer.setAttribute("class", "current");
+    // height: 68px;
+    // position: fixed;
+    // top: 28px;
+    // left: 20px;
+    // z-index: 1;
+    this.timerContainer.style.height='68px';
+    this.timerContainer.style.position='fixed';
+    this.timerContainer.style.top='28px';
+    this.timerContainer.style.left='20px';
+    this.timerContainer.style.zIndex='2';
     this.timerContainer.innerHTML = TEMPLATE;
 
     rootTag.insertBefore(this.timerContainer, rootTag.firstChild);
@@ -124,7 +133,7 @@ function main() {
   let timerWiget = new TimerWidget();
   let intervalId = null;
 
-  timerWiget.mount(document.getElementById("TMpanel").querySelector(".bmenu"));
+  timerWiget.mount(document.body);
 
   function handleIntervalTick() {
     let secsLeft = timer.calculateSecsLeft();
@@ -138,7 +147,7 @@ function main() {
       intervalId = null
     } else {
       timer.start();
-      intervalId = intervalId || setInterval(handleIntervalTick, 300)
+      intervalId = intervalId || setInterval(handleIntervalTick, 1000)
     }
   }
 
