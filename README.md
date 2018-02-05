@@ -9,9 +9,12 @@ Install extension for Chrome browser [Custom JavaScript for websites](https://ch
 
 Open [Geektimes site](https://geektimes.ru).
 
-Open configuration of [cjs](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija) browser extension on the site you want to controll. Click on the link "your own external scripts", add path [TODO в качестве production хостинга файла с JavaScript подойдет GitHub - у каждого файла в репозитории есть свой URL, и этим можно воспользоваться]. Don`t forget to press "enable cjs for this host" to enable custom JS.
-
-Paste code from `index.js` and click `save`
+Open configuration of [cjs](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija)
+browser extension on the site you want to controll. Click on the link
+"your own external scripts", add path
+`https://cdn.rawgit.com/John2013/34_timemachine/983c3b81/index.js`.
+Don't forget to press "enable cjs for this host" to enable custom JS
+then click `save`.
 
 After page reload timer will started in site header and will remind you to get back to work
 
