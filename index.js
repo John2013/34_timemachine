@@ -91,11 +91,6 @@ class TimerWidget {
     // adds HTML tag to current page
     this.timerContainer = document.createElement('div');
 
-    // height: 68px;
-    // position: fixed;
-    // top: 28px;
-    // left: 20px;
-    // z-index: 1;
     this.timerContainer.style.height='68px';
     this.timerContainer.style.position='fixed';
     this.timerContainer.style.top='28px';
