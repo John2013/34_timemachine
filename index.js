@@ -1,6 +1,6 @@
 const TIMEOUT_IN_SECS = 3 * 60;
 const ALERT_TIMEOUT = 30;
-const TEMPLATE = '<h1><span class="js-timer-minutes">00</span>:<span class="js-timer-seconds">00</span></h1>';
+const TEMPLATE = '<h1 style="background-color: rgba(255,255,255,.5);"><span class="js-timer-minutes">00</span>:<span class="js-timer-seconds">00</span></h1>';
 const MESSAGES =
   [
     '«Всякий неработающий человек — негодяй» \n Жан-Жак Руссо',
