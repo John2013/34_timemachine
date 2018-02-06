@@ -12,7 +12,7 @@ Open [Geektimes site](https://geektimes.ru).
 Open configuration of [cjs](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija)
 browser extension on the site you want to controll. Click on the link
 "your own external scripts", add path
-`https://cdn.rawgit.com/John2013/34_timemachine/983c3b81/index.js`.
+`https://cdn.rawgit.com/John2013/34_timemachine/dc01b5d9/index.js`.
 Don't forget to press "enable cjs for this host" to enable custom JS
 then click `save`.
 
