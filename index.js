@@ -96,6 +96,7 @@ class TimerWidget {
     this.timerContainer.style.top='28px';
     this.timerContainer.style.left='20px';
     this.timerContainer.style.zIndex='2000';
+    this.timerContainer.style.backgroundColor='white';
     this.timerContainer.innerHTML = TEMPLATE;
 
     rootTag.insertBefore(this.timerContainer, rootTag.firstChild);
